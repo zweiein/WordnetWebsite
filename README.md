@@ -21,5 +21,5 @@ WordNet tools
 
 Screenshots
 =============
-(http://i.imgur.com/yfXl6LJ.png)
+![image](http://i.imgur.com/yfXl6LJ.png)
 
