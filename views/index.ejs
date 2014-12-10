@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head ng-app>
+  	<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular.min.js"></script>
+    <title><%= title%></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title%></h1>
+    <p>Welcome to <%= title%>!</p>
+
+    <h2>Loop</h2>
+    <ul>
+	<% wordnetDatas.forEach(function(wordnetData) { %>
+		<li>
+			<%= wordnetData.crossline %> <br>
+			<%= wordnetData.synsetOffset %> <br>
+		    <%= wordnetData.pos %> <br>
+            <%= wordnetData.lemma %><br>
+            <%= wordnetData.synonyms %><br>
+            <%= wordnetData.gloss %><br>
+	    </li>
+	<% }); %>
+</ul>
+  </body>
+</html>
