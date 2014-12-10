@@ -2,15 +2,22 @@
 <html>
   <head ng-app>
   	<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular.min.js"></script>
+    <!--<script src="routes/index.js"></script>-->
     <title><%= title%></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css'>
   </head>
-  <body>
+
+  <body  ng-app="">
     <h1><%= title%></h1>
     <p>Welcome to <%= title%>!</p>
 
-    <h2>Loop</h2>
+    <div class="container" ng-controller="TextReader">
+      {{TextReader.name}}
+      <input class="form-control" ng-model="textStr" /><button  class="btn btn-primary" ng-click="Search()">Search</button>
+    <div>
+    <h2>Searching: Network</h2>
     <ul>
 	<% wordnetDatas.forEach(function(wordnetData) { %>
 		<li>

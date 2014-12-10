@@ -5,6 +5,10 @@ var app = express();
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+app.set("view options", {layout: false});
+app.use(express.static(__dirname + '/public'));
+
+
 
 function WordInfo(crossline, synsetOffset, pos, lemma, synonyms, gloss){
 // assign values to object
