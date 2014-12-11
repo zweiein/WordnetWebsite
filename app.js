@@ -75,7 +75,7 @@ function WordInfo(synsetOffset, pos, lemma, synonyms, gloss){
 } // function WordInfo()
 
 
-function SearchingWordNet( userSearchString ) {
+function SearchingWordNet( userSearchString, res ) {
   var natural = require('natural');
   var wordnet = new natural.WordNet('/usr/local/lib/node_modules/WNdb/dict');
   var i = 0 ;
@@ -94,7 +94,10 @@ function SearchingWordNet( userSearchString ) {
         wordnetDatas[i]  = one_wordInfo;
         i++;
       });
-      return wordnetDatas;
+      //return wordnetDatas;
+      res.render('index',{ title: 'NTNU Bioinformatics courses',
+    	                  wordnetDatas: wordnetDatas,
+    	                  targetStr : 'You have searched : '+ userSearch });
   });
 } // SearchingWordNet()
 
@@ -102,11 +105,11 @@ app.post('/', function(req, res){
 	console.log('app.post: @app.js');
 	userSearch = req.body.userSearchString;
     console.log(userSearch);
-    SearchingWordNet(userSearch);
-    
+    SearchingWordNet(userSearch, res);
+    /*
     res.render('index',{ title: 'NTNU Bioinformatics courses',
     	                  wordnetDatas: wordnetDatas,
-    	                  targetStr : 'You have searched : '+ userSearch });
+    	                  targetStr : 'You have searched : '+ userSearch });*/
     console.log(wordnetDatas);
     wordnetDatas = [];
 });
