@@ -11,24 +11,31 @@
 
   <body  ng-app="">
     <h1><%= title%></h1>
+    
     <p>Welcome to <%= title%>!</p>
+    
+    <div class="container" >
 
-    <div class="container" ng-controller="TextReader">
-      {{TextReader.name}}
-      <input class="form-control" ng-model="textStr" /><button  class="btn btn-primary" ng-click="Search()">Search</button>
+      <form method="POST" action="/">
+
+        <input class="form-control" type="text" id="userSearchString" name="userSearchString" value="network"/>
+        <input type="submit" value="search" />
+      </form>
     <div>
-    <h2>Searching: Network</h2>
+    <h2><%= targetStr%></h2>
     <ul>
 	<% wordnetDatas.forEach(function(wordnetData) { %>
 		<li>
-			<%= wordnetData.crossline %> <br>
-			<%= wordnetData.synsetOffset %> <br>
-		    <%= wordnetData.pos %> <br>
-            <%= wordnetData.lemma %><br>
-            <%= wordnetData.synonyms %><br>
-            <%= wordnetData.gloss %><br>
+			<b>SynsetOffset:</b> <%= wordnetData.synsetOffset %> <br>
+		    <b>Pos:</b> <%= wordnetData.pos %> <br>
+            <b>Lemma:</b> <%= wordnetData.lemma %><br>
+            <b>Synonyms:</b> <%= wordnetData.synonyms %><br>
+            <b>Gloss:</b> <%= wordnetData.gloss %><br><br>
 	    </li>
 	<% }); %>
 </ul>
   </body>
+  <br>
+  <hr>
+    <img src="http://wordnet.princeton.edu/wordnet/banner_logo.png" height="40" width="200">&nbsp;&nbsp;<img src="http://www.csie.ntnu.edu.tw/image/ntnulogo4.gif" height="40" width="40">
 </html>
